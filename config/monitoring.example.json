@@ -1,0 +1,59 @@
+{
+  "monitoring": {
+    "enabled": true,
+    "keystrokeCapture": {
+      "enabled": true,
+      "captureInterval": 5000,
+      "excludeApplications": [
+        "Password Manager",
+        "Banking App",
+        "Authenticator"
+      ],
+      "excludeFields": true
+    },
+    "screenshotCapture": {
+      "enabled": true,
+      "intervalMinutes": 60,
+      "quality": 85,
+      "maxResolution": "1920x1080",
+      "includeSecondaryMonitors": false
+    },
+    "dataRetention": {
+      "keylogsRetentionDays": 30,
+      "screenshotsRetentionDays": 90,
+      "auditLogsRetentionDays": 365,
+      "autoDeleteEnabled": true
+    }
+  },
+  "storage": {
+    "type": "FileSystem",
+    "path": "./captured_data",
+    "encryption": {
+      "enabled": true,
+      "algorithm": "AES-256-GCM",
+      "keyRotationDays": 90
+    }
+  },
+  "database": {
+    "provider": "PostgreSQL",
+    "connectionString": "Server=localhost;Database=EmployeeMonitoring;User Id=admin;Password=CHANGE_ME"
+  },
+  "security": {
+    "enableMFA": true,
+    "sessionTimeout": 30,
+    "passwordPolicy": {
+      "minLength": 12,
+      "requireUppercase": true,
+      "requireNumbers": true,
+      "requireSpecialChars": true
+    }
+  },
+  "logging": {
+    "level": "Information",
+    "auditLog": {
+      "enabled": true,
+      "logAllAccess": true,
+      "logDataExport": true
+    }
+  }
+}
